@@ -9,14 +9,15 @@ class GUI:
         self.request = WeatherRequest()
 
         self.e1 = Entry(self.window)
-        self.e1.grid(row=0)
-        Label(self.window, text="weatherValue").grid(row=1)
+        self.e1.grid(row=0, column=1)
+
+        Label(self.window, text="Zipcode").grid(row=0, column=0)
 
         button = Button(self.window, text="Print Me", command=self.getUserRequest)
-        escape = Button(self.window, text="Print Me", command=quit)
+        escape = Button(self.window, text="quit", command=quit)
 
-        button.grid(row=3)
-        escape.grid(row=4)
+        button.grid(row=3, column=0)
+        escape.grid(row=3, column=1)
 
         self.window.mainloop()
 
@@ -32,6 +33,26 @@ class GUI:
 
         # makes request
         self.request.makeRequest(zipcode)
+
+        # seperates the variables
+
+        Label(self.window, text="temperature :").grid(row=5, column=0)
+        Label(self.window, text=self.request.get_val("temperature")).grid(row=5, column=1)
+
+        Label(self.window, text="location :").grid(row=6, column=0)
+        Label(self.window, text=self.request.get_val("city")).grid(row=6, column=1)
+
+        Label(self.window, text="humidity :").grid(row=7, column=0)
+        Label(self.window, text=self.request.get_val("humidity")).grid(row=7, column=1)
+
+        Label(self.window, text="main description :").grid(row=8, column=0)
+        Label(self.window, text=self.request.get_val("main_description")).grid(row=8, column=1)
+
+        Label(self.window, text="max temp :").grid(row=9, column=0)
+        Label(self.window, text=self.request.get_val("temp_max")).grid(row=9, column=1)
+
+        Label(self.window, text="min temp :").grid(row=10, column=0)
+        Label(self.window, text=self.request.get_val("temp_min")).grid(row=10, column=1)
 
         print(self.request.getData())
 

@@ -6,6 +6,9 @@ class WeatherRequest:
         self.url = "http://api.openweathermap.org/data/2.5/weather?"
         self.key = "0ba6294d35fd4d0ade6224193d18de15"
         self.data = None
+        self.getTmp = None
+        self.getMax = None
+        self.getMin = None
 
     def makeRequest(self, zipcode):
         payload = {"zip": zipcode, "units": "imperial", "apikey": self.key}
@@ -19,7 +22,6 @@ class WeatherRequest:
     def setData(self, json_string):
         # Get all data
         main = json_string["main"]
-        temp = int(main["temp"])
 
         # Set data to dictionary
         self.data = {'temp_max': int(main["temp_max"]),
@@ -27,11 +29,16 @@ class WeatherRequest:
                      'humidity': main["humidity"],
                      'weather': json_string["weather"],
                      'main_description': json_string["weather"][0]["main"],
-                     'city': json_string["name"]
+                     'city': json_string["name"],
+                     'temperature': int(main["temp"])
                      }
+
+    def get_val(self, key):
+        return self.data[key]
 
     def getData(self):
         return self.data
+
 
 
 # print(city)
