@@ -1,6 +1,10 @@
 from tkinter import *
 from WeatherRequest import WeatherRequest
 
+# created a gui class that passes in a title constructor
+
+# geomerty sets the size of the gui so that when it opens that is the size of it
+
 class GUI:
     def __init__(self, title):
         self.window = Tk()
@@ -8,16 +12,20 @@ class GUI:
         self.window.geometry("600x300+0+0")
         self.request = WeatherRequest()
 
+        # entry gives input text box
+
         self.e1 = Entry(self.window)
         self.e1.grid(row=0, column=1)
 
         Label(self.window, text="Zipcode").grid(row=0, column=0)
 
         button = Button(self.window, text="Print Me", command=self.getUserRequest)
-        escape = Button(self.window, text="quit", command=quit)
+
+        # had an escape button but it was worthless because i can quit the window
+        # escape = Button(self.window, text="quit", command=quit)
 
         button.grid(row=3, column=0)
-        escape.grid(row=3, column=1)
+        # escape.grid(row=3, column=1)
 
         self.window.mainloop()
 
