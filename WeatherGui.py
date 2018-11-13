@@ -1,9 +1,12 @@
 from tkinter import *
 from WeatherRequest import WeatherRequest
 
+
 # created a gui class that passes in a title constructor
 
 # geomerty sets the size of the gui so that when it opens that is the size of it
+
+
 
 class GUI:
     def __init__(self, title):
@@ -13,6 +16,10 @@ class GUI:
         self.request = WeatherRequest()
 
         # entry gives input text box
+
+        #test
+        self.window.iconbitmap(r'Users/marysollosada/Desktop/test/WeatherApp/b.ico')
+        
 
         self.e1 = Entry(self.window)
         self.e1.grid(row=0, column=1)
@@ -66,3 +73,5 @@ class GUI:
 
     def getZip(self):
         return self.e1.get()
+
+
