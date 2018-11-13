@@ -12,7 +12,10 @@ class GUI:
         self.window.geometry("600x300+0+0")
         self.request = WeatherRequest()
 
+
         # entry gives input text box
+
+        self.window.iconbitmap(r'/home/genone/Desktop/app/WeatherApp/a.ico')
 
         self.e1 = Entry(self.window)
         self.e1.grid(row=0, column=1)
