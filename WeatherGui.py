@@ -29,12 +29,12 @@ class GUI:
 
         self.window.mainloop()
 
-    # def printSomething(self):
-    #     # if you want the button to disappear:
-    #     # button.destroy() or button.pack_forget()
-    #     lab = Label(self.window, text=)
-    #     lab.grid(row=2)
-    #     #this creates a new label to the GUI
+    def printSomething(self):
+        # if you want the button to disappear:
+        # button.destroy() or button.pack_forget()
+        lab = Label(self.window, text=)
+        lab.grid(row=2)
+        #this creates a new label to the GUI
 
     def getUserRequest(self):
         zipcode = self.getZip()
